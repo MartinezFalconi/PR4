@@ -25,7 +25,7 @@ class LoginControllerRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'passwd' => 'required'
+            'passwd' => 'required',
         ];
     }
 }

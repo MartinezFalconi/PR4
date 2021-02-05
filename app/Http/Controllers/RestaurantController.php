@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //importa la base de datos
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CreateRestaurantControllerRequest;
 
 use Illuminate\Http\Request;
 
@@ -236,7 +237,7 @@ class RestaurantController extends Controller
         return view('formCreateRestaurant', compact('typeRestaurant'));
     }
 
-    public function generarRestaurante(Request $request){
+    public function generarRestaurante(CreateRestaurantControllerRequest $request){
         $datos=$request->except('_token', 'register-boton');
         //recogemos la imagen que viene del form, y nos quedamos con la ruta temportal.
         $img = $request->file('image_path')->getRealPath();

@@ -13,7 +13,7 @@ class CreateRestaurantControllerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class CreateRestaurantControllerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:255',
+            'description' => 'required|max:255',
+            'image_path' => 'required|image|mimes:png|max:800',
+            'id_restaurant_type_fk' => 'required',
         ];
     }
 }
