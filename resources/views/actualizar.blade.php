@@ -28,7 +28,7 @@
 
         </div>
     </nav>
-    <form action="{{url('updateRestaurante')}}" method="post" class="formulario-register" enctype="multipart/form-data">
+    <form action="{{url('modificar/'.$restaurant->id_restaurant)}}" method="get" class="formulario-register" enctype="multipart/form-data">
     @csrf
         <div class="div-form-register">
             <div class="frase-register">
@@ -60,7 +60,7 @@
                             </select>
                             <span class="label-campoform">Tipo</span>
                         </div>
-                        <button type="submit" class="login-boton">Crear</button>
+                        <button type="submit" class="login-boton">Actualizar</button>
                     </div>
                     <button class="volver-boton"><a href="{{url('homeAdmin')}}">Volver Atrás</a></button>
                 </div>

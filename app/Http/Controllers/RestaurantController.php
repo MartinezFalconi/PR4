@@ -250,8 +250,9 @@ class RestaurantController extends Controller
     }
 
     public function deleteRestaurant(Request $request){
+        
+        DB::select('DELETE FROM `tbl_assessment` WHERE id_restaurant_fk = ?', [$request->input('id_restaurant')]);
         try {
-            DB::select('DELETE FROM `tbl_assessment` WHERE id_restaurant_fk = ?', [$request->input('id_restaurant')]);
             DB::select('DELETE FROM `tbl_restaurant` WHERE id_restaurant = ?', [$request->input('id_restaurant')]);
             return response()->json(array('resultado'=>'OK'), 200);
         } catch (\Throwable $th) {
