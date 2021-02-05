@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //importa la base de datos
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CreateRestaurantControllerRequest;
 
 use Illuminate\Http\Request;
 
@@ -236,7 +237,7 @@ class RestaurantController extends Controller
         return view('formCreateRestaurant', compact('typeRestaurant'));
     }
 
-    public function generarRestaurante(Request $request){
+    public function generarRestaurante(CreateRestaurantControllerRequest $request){
         $datos=$request->except('_token', 'register-boton');
         //recogemos la imagen que viene del form, y nos quedamos con la ruta temportal.
         $img = $request->file('image_path')->getRealPath();
@@ -251,8 +252,13 @@ class RestaurantController extends Controller
 
     public function deleteRestaurant(Request $request){
         try {
-            DB::select('DELETE FROM `tbl_assessment` WHERE id_restaurant_fk = ?', [$request->input('id_restaurant')]);
-            DB::select('DELETE FROM `tbl_restaurant` WHERE id_restaurant = ?', [$request->input('id_restaurant')]);
+            if (DB::select('DELETE FROM `tbl_assessment` WHERE id_restaurant_fk = ?', [$request->input('id_restaurant')])) {
+                DB::select('DELETE FROM `tbl_restaurant` WHERE id_restaurant = ?', [$request->input('id_restaurant')]);
+            }else {
+                DB::select('DELETE FROM `tbl_restaurant` WHERE id_restaurant = ?', [$request->input('id_restaurant')]);
+            }
+            
+            
             return response()->json(array('resultado'=>'OK'), 200);
         } catch (\Throwable $th) {
             //throw $th;

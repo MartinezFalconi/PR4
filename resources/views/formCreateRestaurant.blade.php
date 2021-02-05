@@ -12,6 +12,16 @@
     
 </head>
 <body class="registro-body">
+    @if ($errors->any())
+    <div role="alert">
+        <ul class="list-group">
+            @foreach ($errors->all() as $error)
+            <li class="list-group-item list-group-item-danger">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <form action="{{url('generarRestaurante')}}" enctype="multipart/form-data" method="post" class="formulario-register">
     <form action="{{url('generarRestaurante')}}" method="post" class="formulario-register" enctype="multipart/form-data">
     @csrf
@@ -51,9 +61,13 @@
                         <button type="submit" class="register-boton">Crear</button>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
-</form>
+        <!-- Muestra el error al usuario -->
+        @if(session('error'))
+            <p><strong>{{session('error')}}</strong></p>
+        @endif
+    </form>
 <div class="footer-basic">
     <footer>
         <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
