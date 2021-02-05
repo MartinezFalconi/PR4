@@ -380,10 +380,13 @@
   input[name="monedas"] {
     display: none;
   }
+
+  label.label-estrellas{
+    color: orange;
+  }
   
-  
-  .label-estrellas -estrellas {
-    color: grey;
+  label.label-monedas{
+    color: orange;
   }
   
   .clasificacion {
