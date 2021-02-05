@@ -49,27 +49,27 @@
     <div class="div-valoracion">
         <h4>Valora nuestro restaurante!</h4>
         <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="1"><!--
+            <input id="radio1" type="radio" name="estrellas" value="5"><!--
             --><label class="label-estrellas" for="radio1">★</label><!--
-            --><input id="radio2" type="radio" name="estrellas" value="2"><!--
+            --><input id="radio2" type="radio" name="estrellas" value="4"><!--
             --><label class="label-estrellas" for="radio2">★</label><!--
             --><input id="radio3" type="radio" name="estrellas" value="3"><!--
             --><label class="label-estrellas" for="radio3">★</label><!--
-            --><input id="radio4" type="radio" name="estrellas" value="4"><!--
+            --><input id="radio4" type="radio" name="estrellas" value="2"><!--
             --><label class="label-estrellas" for="radio4">★</label><!--
-            --><input id="radio5" type="radio" name="estrellas" value="5"><!--
+            --><input id="radio5" type="radio" name="estrellas" value="1"><!--
             --><label class="label-estrellas" for="radio5">★</label>
         </p>
 
         <h4>Valora nuestro precio!</h4>
         <p class="clasificacion-monedas">
-            <input id="radio6" type="radio" name="monedas" value="1"><!--
+            <input id="radio6" type="radio" name="monedas" value="4"><!--
             --><label  class="label-monedas" for="radio6">€</label><!--
-            --><input id="radio7" type="radio" name="monedas" value="2"><!--
+            --><input id="radio7" type="radio" name="monedas" value="3"><!--
             --><label class="label-monedas" for="radio7">€</label><!--
-            --><input id="radio8" type="radio" name="monedas" value="3"><!--
+            --><input id="radio8" type="radio" name="monedas" value="2"><!--
             --><label class="label-monedas" for="radio8">€</label><!--
-            --><input id="radio9" type="radio" name="monedas" value="4"><!--
+            --><input id="radio9" type="radio" name="monedas" value="1"><!--
             --><label class="label-monedas" for="radio9">€</label><!-
         </p>
         <input type="hidden"  id="restaurante" name="restaurante" value="{{ $restaurant->id_restaurant }}"><br><br>
