@@ -28,6 +28,11 @@
 
         </div>
     </nav>
+
+    <!-- Muestra el error al usuario -->
+    @if(session('error'))
+            <p><strong>{{session('error')}}</strong></p>
+        @endif
     <form action="{{url('modificar/'.$restaurant->id_restaurant)}}" method="get" class="formulario-register" enctype="multipart/form-data">
     @csrf
         <div class="div-form-register">
@@ -64,9 +69,13 @@
                     </div>
                     <button class="volver-boton"><a href="{{url('homeAdmin')}}">Volver Atrás</a></button>
                 </div>
+            </div>
         </div>
-    </div>
-</form>
+        <!-- Muestra el error al usuario -->
+        @if(session('error'))
+            <p><strong>{{session('error')}}</strong></p>
+        @endif
+    </form>
 <div class="footer-basic">
     <footer>
         <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>

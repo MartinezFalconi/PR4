@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN | Too Good To Go</title>
+    <title>Create Restaurant | Too Good To Go</title>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./css/login.css">
 
@@ -12,6 +12,33 @@
     
 </head>
 <body class="registro-body">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                 <a href="{{url('homeStandard')}}"><img src="../storage/images/header.png" class="logo"> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <i class="fa fa-user-plus" style="font-size:36px"></i>
+                </li>
+                <li class="nav-item">
+                    <li class="inicio-sesion">
+                    <div class="session">Bienvenido, {{Session::get('email')}}</div>
+                    </li>
+                    <li class="cerrar-sesion">
+                        <button class="cerrars-boton"><a href="{{url('logout')}}">Cerrar Sesión</a></button></li>
+                    </li>
+                
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     @if ($errors->any())
     <div role="alert">
         <ul class="list-group">
@@ -21,6 +48,7 @@
         </ul>
     </div>
     @endif
+
 
     <form action="{{url('generarRestaurante')}}" enctype="multipart/form-data" method="post" class="formulario-register">
     <form action="{{url('generarRestaurante')}}" method="post" class="formulario-register" enctype="multipart/form-data">

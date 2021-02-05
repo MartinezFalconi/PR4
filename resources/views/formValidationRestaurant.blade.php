@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <script src="js/ajax.js"></script>
-    <title>Home Standard</title>
+    <title>Update Restaurant | Too Good To Go</title>
 </head>
 <body class="body-homeStandard">
     <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
@@ -39,6 +39,15 @@
             </ul>
         </div>
     </nav>
+    @if ($errors->any())
+    <div role="alert">
+        <ul class="list-group">
+            @foreach ($errors->all() as $error)
+            <li class="list-group-item list-group-item-danger">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 <div class="container">
 
     <h1>¿Qué te ha parecido nuestro restaurante? Háznolo saber!</h1>

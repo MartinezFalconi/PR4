@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 //importa la base de datos
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\CreateRestaurantControllerRequest;
+use App\Http\Requests\UpdateRestaurantControllerRequest;
 
 use Illuminate\Http\Request;
 
@@ -275,7 +276,7 @@ class RestaurantController extends Controller
         return view('actualizar', compact('restaurant'), compact('typesrestaurant'));
     }
 
-    public function modificar($id, Request $request){
+    public function modificar($id, UpdateRestaurantControllerRequest $request){
         // recibir los datos del usuario
         $datos=request()->except('_token','enviar','_method');
         // return $datos;
