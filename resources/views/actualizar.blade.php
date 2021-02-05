@@ -29,10 +29,15 @@
         </div>
     </nav>
 
-    <!-- Muestra el error al usuario -->
-    @if(session('error'))
-            <p><strong>{{session('error')}}</strong></p>
-        @endif
+    @if ($errors->any())
+    <div role="alert">
+        <ul class="list-group">
+            @foreach ($errors->all() as $error)
+            <li class="list-group-item list-group-item-danger">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <form action="{{url('modificar/'.$restaurant->id_restaurant)}}" method="get" class="formulario-register" enctype="multipart/form-data">
     @csrf
         <div class="div-form-register">
