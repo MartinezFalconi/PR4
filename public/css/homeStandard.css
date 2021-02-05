@@ -91,6 +91,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
+    width: 100%!important;
   }
 
   .body-homeStandard{
@@ -219,7 +220,7 @@
   }
 
   .navbar-nav li:nth-last-child(4){
-    margin-left: 140%;
+    margin-left: 110%;
     color: var(--simple1);
     margin-right: 30px;
     margin-top: 15px;
