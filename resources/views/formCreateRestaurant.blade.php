@@ -39,16 +39,6 @@
         </div>
     </nav>
 
-    @if ($errors->any())
-    <div role="alert">
-        <ul class="list-group">
-            @foreach ($errors->all() as $error)
-            <li class="list-group-item list-group-item-danger">{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
 
     <form action="{{url('generarRestaurante')}}" enctype="multipart/form-data" method="post" class="formulario-register">
     <form action="{{url('generarRestaurante')}}" method="post" class="formulario-register" enctype="multipart/form-data">
@@ -63,23 +53,23 @@
                 <div class="background-form">
                     <div class="inputs-form"> 
                         <div class="div-register">
-                            <input class="campoform" type="text" name="name" id="name">
+                            <input class="campoform" type="text" name="name" id="name" required>
                             <span class="focus-campoform"></span>
                             <span class="label-campoform">Nombre restaurante</span>
                         </div>
                         <div class="div-register">
-                            <input class="campoform" type="text" name="description" id="description">
+                            <input class="campoform" type="text" name="description" id="description" required>
                             <span class="focus-campoform"></span>
                             <span class="label-campoform">Descripción</span>
                         </div>
                         <div class="div-restaurante">
-                            <input class="campoform" accept="image/png" type="file" name="image_path" id="image_path">
+                            <input class="campoform" type="file" name="image_path" id="image_path" required>
                             <span class="focus-campoform"></span>
                             <span class="label-campoform">Imagen</span>
                         </div>
                         <div class="div-restaurante">
                             <span class="focus-campoform"></span>
-                            <select name="id_restaurant_type_fk" id="id_restaurant_type_fk">
+                            <select name="id_restaurant_type_fk" id="id_restaurant_type_fk" required>
                             @foreach($typeRestaurant as $type)
                                 <option value="{{ $type->id_type_restaurant }}">{{ $type->type_food }}</option>';
                             @endforeach
@@ -87,15 +77,11 @@
                             <span class="label-campoform">Tipo</span>
                         </div>
                         <button type="submit" class="register-boton">Crear</button>
+                        <button class="volver-boton"><a href="{{url('homeAdmin')}}">Volver Atrás</a></button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Muestra el error al usuario -->
-        @if(session('error'))
-            <p><strong>{{session('error')}}</strong></p>
-        @endif
-    </form>
 <div class="footer-basic">
     <footer>
         <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>

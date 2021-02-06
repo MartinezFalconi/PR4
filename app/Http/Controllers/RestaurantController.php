@@ -238,7 +238,7 @@ class RestaurantController extends Controller
         return view('formCreateRestaurant', compact('typeRestaurant'));
     }
 
-    public function generarRestaurante(CreateRestaurantControllerRequest $request){
+    public function generarRestaurante(Request $request){
         $datos=$request->except('_token', 'register-boton');
         //recogemos la imagen que viene del form, y nos quedamos con la ruta temportal.
         $img = $request->file('image_path')->getRealPath();
@@ -276,7 +276,7 @@ class RestaurantController extends Controller
         return view('actualizar', compact('restaurant'), compact('typesrestaurant'));
     }
 
-    public function modificar($id, UpdateRestaurantControllerRequest $request){
+    public function modificar($id, Request $request){
         // recibir los datos del usuario
         $datos=request()->except('_token','enviar','_method');
         // return $datos;

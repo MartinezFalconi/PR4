@@ -29,15 +29,6 @@
         </div>
     </nav>
 
-    @if ($errors->any())
-    <div role="alert">
-        <ul class="list-group">
-            @foreach ($errors->all() as $error)
-            <li class="list-group-item list-group-item-danger">{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
     <form action="{{url('modificar/'.$restaurant->id_restaurant)}}" method="get" class="formulario-register" enctype="multipart/form-data">
     @csrf
         <div class="div-form-register">
@@ -58,10 +49,6 @@
                             <span class="label-campoform">Descripción</span>
                         </div>
                         <div class="div-restaurante">
-                            <input class="campoform" accept="image/png" type="file" name="image_path" id="image_path" value="{{ $restaurant->image_path }}">
-                            <span class="label-campoform">Imagen</span>
-                        </div>
-                        <div class="div-restaurante">
                             <span class="focus-campoform"></span>
                             <select name="id_restaurant_type_fk" id="id_restaurant_type_fk">
                             @foreach($typesrestaurant as $type)
@@ -76,10 +63,6 @@
                 </div>
             </div>
         </div>
-        <!-- Muestra el error al usuario -->
-        @if(session('error'))
-            <p><strong>{{session('error')}}</strong></p>
-        @endif
     </form>
 <div class="footer-basic">
     <footer>
